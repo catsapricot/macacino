@@ -24,11 +24,6 @@ class Documents extends Model
         'file_url'
     ];
 
-    protected $casts = [
-        'created_at' => 'datetime',
-        'last_read_at' => 'datetime',
-    ];
-
     public function getFileUrlAttribute(): string
     {
         return "/static/uploads/{$this->filename}";
@@ -36,6 +31,14 @@ class Documents extends Model
         // Catatan: Jika Anda ingin URL lengkap termasuk domain (http://...), 
         // Anda bisa menggunakan helper asset() bawaan Laravel seperti ini:
         // return asset("static/uploads/{$this->filename}");
+    }
+
+    protected function casts(): array 
+    {
+        return [
+            'created_at' => 'datetime',
+            'last_read_at' => 'datetime',
+        ];
     }
 
     public function user(): BelongsTo

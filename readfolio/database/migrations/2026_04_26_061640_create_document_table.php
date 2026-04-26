@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignUuid('user_id')->constrained('users.id')->cascadeOnDelete();
             $table->string('title', 255);
             $table->string('filename', 255);
             $table->integer('total_pages')->default(0);
