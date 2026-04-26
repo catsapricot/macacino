@@ -54,9 +54,9 @@ APP_KEY=
 # Arahkan ke file database SQLite
 # Gunakan path absolut, sesuaikan dengan lokasi folder project kamu
 # Contoh Windows:
-DB_DATABASE=C:\Users\namakamu\readfolio\database\readfolio.db
+DB_DATABASE=C:\Users\namakamu\macacino\readfolio\database\readfolio.db
 # Contoh Mac/Linux:
-DB_DATABASE=/home/namakamu/readfolio/database/readfolio.db
+DB_DATABASE=/home/namakamu/macacino/readfolio/database/readfolio.db
 
 # Isi API key kamu
 GROQ_API_KEY=isi_api_key_groq_kamu_di_sini
