@@ -2,7 +2,7 @@
 
 Tugas besar ABP dari kelompok 4 IF-47-04 yang beranggotakan:
 1. Ghanif Hadiyana Akbar (103012300018)
-2. 
+2. Mohammad Aditya Wiraprana (103012300050)
 3. Daisaq Hadya Albar (103012300158)
 4. Taraka Yumna Sarwoko (103012300242)
 5. Muhammad Nazriel Ihram (103012300269)
