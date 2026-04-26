@@ -2,14 +2,16 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+// use Illuminate\Database\Eloquent\Factories\HasFactory
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Documents extends Model
+class Document extends Model
 {
-    use HasFactory, HasUuids;
+    use HasUuids;
     protected $table = 'documents';
     const UPDATED_AT = 'last_read_at';
     protected $fillable = [
@@ -24,13 +26,11 @@ class Documents extends Model
         'file_url'
     ];
 
-    public function getFileUrlAttribute(): string
+    protected function fileUrl(): Attribute
     {
-        return "/static/uploads/{$this->filename}";
-        
-        // Catatan: Jika Anda ingin URL lengkap termasuk domain (http://...), 
-        // Anda bisa menggunakan helper asset() bawaan Laravel seperti ini:
-        // return asset("static/uploads/{$this->filename}");
+        return Attribute::make(
+            get: fn () => "/static/uploads/{$this->filename}",
+        );
     }
 
     protected function casts(): array 
@@ -44,6 +44,11 @@ class Documents extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function highlights(): HasMany
+    {
+        return $this->hasMany(Highlight::class);
     }
 
 }
